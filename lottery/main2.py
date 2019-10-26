@@ -1,33 +1,25 @@
 import random
 from typing import List
-
 import pandas as pd
 
-# Read lottery data
-df = pd.read_csv("./data/lottery.csv")
-row_len = len(df)
+df = pd.read_csv("data/lottery.csv")
 
-
-# Make random int list helper function
-def random_int_list(num: int, length: int):
+# function that make random number list.
+def random_func(num):
     result = []
-    for i in range(length):
-        result.append(random.randrange(num))
+    for i in range(len(df)):
+        result.append(random.randrange(0,num))
     return result
 
-
-# Make new columns, save to csv, and print out first 20 lines
-# Column explanation
-# win: (win, 1), (lose, 0)
-# weather: (sunny, 0), (cloudy, 1), (dizzy, 2), (rainy, 3)
-# no_prev_winner: (no, 1), (yes, 1)
-rnd_win: List[int] = random_int_list(2, row_len)
-rnd_weather: List[int] = random_int_list(4, row_len)
-rnd_no_prev_winner: List[int] = random_int_list(2, row_len)
+# 0:son scores no goal, 1: son scores 1 goal, 2: son scores 2 goals, 3: son scores hattrick, 4: son goes crazy.
+random_SonHeunhmin = random_func(5)
+# 0:pig dream, 1:cow dream, 2:dog dream.
+random_dream = random_func(3)
+# 0:no assignment weekend, 1:assignment weekend
+random_no_assignment = random_func(2)
 
 adding_df = pd.DataFrame(
-    {"win": rnd_win, "weather": rnd_weather, "no_prev_winner": rnd_no_prev_winner}
+    {"SonHeunhmin": random_SonHeunhmin, "dream": random_dream, "no_assignment": random_no_assignment}
 )
-new_df = df.join(adding_df)
-new_df.to_csv("./data/new_lottery.csv", mode="w")
-print(new_df[:20])
+df2 = df.join(adding_df)
+df2.to_csv("./data/new_lottery.csv", mode="w")
