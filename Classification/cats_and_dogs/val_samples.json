@@ -1,0 +1,30 @@
+[
+  {
+    "image_id": "dog.13.jpg",
+    "label": 1
+  },
+  {
+    "image_id": "dog.14.jpg",
+    "label": 1
+  },
+  {
+    "image_id": "cat.13.jpg",
+    "label": 0
+  },
+  {
+    "image_id": "dog.16.jpg",
+    "label": 1
+  },
+  {
+    "image_id": "cat.19.jpg",
+    "label": 0
+  },
+  {
+    "image_id": "cat.9.jpg",
+    "label": 0
+  },
+  {
+    "image_id": "cat.14.jpg",
+    "label": 0
+  }
+]
